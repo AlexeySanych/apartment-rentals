@@ -1,0 +1,72 @@
+.management {
+    padding: 30px;
+}
+.form_auth {
+    max-width: 300px;
+    margin: 0 auto;
+}
+.management h1 {
+    margin: 20px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.management__input {
+    margin: 10px;
+}
+.management__btn-block {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+.management .btn {
+    margin: 10px;
+    padding: 5px 10px;
+}
+
+.management__nav-home {
+    margin-bottom: 30px;
+}
+
+.management__admin_nav {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.management__admin_nav li {
+    margin-bottom: 10px;
+    padding: 5px;
+    text-align: center;
+    background-color: #BCBCBC;
+    border-radius: 25px;
+}
+
+.management__admin_nav li:hover {
+    background-color: #333333;
+}
+
+.management__admin_nav li:hover a {
+    color: #FFFFFF;
+}
+
+.management__admin_nav a {
+    color: #000000;
+}
+
+.management__table,
+.management__table th,
+.management__table td
+{
+    border: 1px solid #FFFFFF;
+    border-collapse: collapse;
+    background-color: #e6e6e6;
+}
+
+.management__table th,
+.management__table td {
+    padding: 10px;
+}
+.td-input {
+    margin: 0;
+    padding: 0;
+}
