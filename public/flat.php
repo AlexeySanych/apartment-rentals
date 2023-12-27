@@ -9,11 +9,9 @@ if (!$flat) {
     header('HTTP/1.1 404 Not Found');
     header('Location: http://' . $_SERVER['HTTP_HOST'] . '/errors/404.php');
 }
-$equipment = json_decode($flat['equipment'], true);
 $images = explode(',', $flat['images']);
 
 $title = "Квартрира";
-
 include 'layouts/head.php';
 
 ?>
@@ -53,16 +51,6 @@ include 'layouts/head.php';
                   <div class="apartment-card__cost"><?= $flat['cost'] ?> ₽ за сутки</div>
                   <div class="apartment-card__address"><?= $flat['address'] ?></div>
                </div>
-            </div>
-            <div class="flat__equipment">
-               <p class="flat__equipment-title">Оснащение:</p>
-               <ul class="flat__equipment-list">
-                   <?php
-                        foreach ($equipment as $item) :
-                   ?>
-                        <li class="flat__equipment-item"><?= $item ?></li>
-                   <?php endforeach;?>
-               </ul>
             </div>
             <a class="btn flat__all-btn" href="<?= 'http://' . $_SERVER['HTTP_HOST'] ?>/apartments.php">Смотреть все квартиры</a>
          </div>

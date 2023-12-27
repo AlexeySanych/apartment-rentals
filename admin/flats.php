@@ -28,7 +28,7 @@ include '../../admin/layouts/pages-head.php';
                     <td><?= $flat['cost'] ?></td>
                     <td><?= $flat['address'] ?></td>
                     <td><a href="<?= 'http://'. $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] . '?page=flat&id=' . $flat['id']?>">Изменить</a></td>
-                    <td><input class="td-input" type="checkbox" name="checkeds[]" value="<?= $flat['id'] ?>"></td>
+                    <td><input class="td-input" type="checkbox" name="deletes[]" value="<?= $flat['id'] ?>"></td>
                 </tr>
             <?php endforeach ?>
             </tbody>
