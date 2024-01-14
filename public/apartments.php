@@ -15,9 +15,7 @@ include 'layouts/head.php';
          <div class="container">
             <h2 class="h2">Наши квартиры</h2>
              <?php
-             $i = 0;
                 foreach ($flats as $flat):
-                    $i++;
                 ?>
                     <div class="apartment-card">
                        <div class="apartment-card__img">
@@ -27,7 +25,7 @@ include 'layouts/head.php';
                        <div class="apartment-card__txt"><?= $flat['desc_prev'] ?></div>
                        <div class="apartment-card__cost"><?= $flat['cost'] ?> ₽ за сутки</div>
                        <div class="apartment-card__address"><?= $flat['address'] ?></div>
-                       <a class="btn apartment-card__link" href="<?= 'http://' . $_SERVER['HTTP_HOST'] ?>/flat.php?flat=<?= $i ?>">Подробнее</a>
+                       <a class="btn apartment-card__link" href="<?= 'http://' . $_SERVER['HTTP_HOST'] ?>/flat.php?flat=<?= $flat['id'] ?>">Подробнее</a>
                     </div>
                 <?php endforeach;?>
          </div>

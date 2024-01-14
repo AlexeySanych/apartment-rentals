@@ -1,7 +1,8 @@
 <?php
 include '../system/connectDB.php';
 
-// SELECT * FROM `table` ORDER BY RAND() LIMIT 4
+$flats_query = mysqli_query($mysqli, "SELECT flats.*,GROUP_CONCAT(photos.image_name) AS images FROM flats JOIN photos ON flats.id = photos.flat_id GROUP BY flats.id ORDER BY RAND() LIMIT 4");
+$flats = mysqli_fetch_all($flats_query, MYSQLI_ASSOC);
 
 $title = "Аренда квартир";
 
@@ -51,63 +52,26 @@ include 'layouts/head.php';
          <div class="container">
             <h2 class="h2">Наши квартиры</h2>
             <div class="quarters__body">
-               <div class="quarters__room-wrapper">
-                  <div class="quarters__room ">
-                     <div class="quarters__photo">
-                        <img src="<?= 'http://' . $_SERVER['HTTP_HOST'] ?>/assets/img/quarters/1.jpg" alt="room photo">
-                     </div>
-                     <p class="quarters__feature-m">1 комната</p>
-                     <p class="quarters__feature-d">Однокомнатная квартира</p>
-                     <p class="quarters__price">Сутки: <span>1 500 ₽</span></p>
-                     <div class="quarterrs__footer">
-                        <button class="quarters__adress">ул. Юбилейная 108</button>
-                        <a class="quarters__btn btn" href="flat.php">Подробней</a>
-                     </div>
-                  </div>
-               </div>
-               <div class="quarters__room-wrapper">
-                  <div class="quarters__room">
-                     <div class="quarters__photo">
-                        <img src="<?= 'http://' . $_SERVER['HTTP_HOST'] ?>/assets/img/quarters/2.jpg" alt="room photo">
-                     </div>
-                     <p class="quarters__feature-m">2 комнаты</p>
-                     <p class="quarters__feature-d">Двухкомнатная квартира</p>
-                     <p class="quarters__price">Сутки: <span>1 300 ₽</span></p>
-                     <div class="quarterrs__footer">
-                        <button class="quarters__adress">ул. Гагарина 89</button>
-                        <a class="quarters__btn btn" href="flat.php">Подробней</a>
-                     </div>
-                  </div>
-               </div>
-               <div class="quarters__room-wrapper">
-                  <div class="quarters__room">
-                     <div class="quarters__photo">
-                        <img src="<?= 'http://' . $_SERVER['HTTP_HOST'] ?>/assets/img/quarters/3.jpg" alt="room photo">
-                     </div>
-                     <p class="quarters__new">Новая квартира</p>
-                     <p class="quarters__feature-m">3 комнаты</p>
-                     <p class="quarters__feature-d">Трёхкомнатная квартира</p>
-                     <p class="quarters__price">Сутки: <span>1 700 ₽</span></p>
-                     <div class="quarterrs__footer">
-                        <button class="quarters__adress"> ул. Шмидта 10</button>
-                        <a class="quarters__btn btn" href="flat.php">Подробней</a>
-                     </div>
-                  </div>
-               </div>
-               <div class="quarters__room-wrapper">
-                  <div class="quarters__room">
-                     <div class="quarters__photo">
-                        <img src="<?= 'http://' . $_SERVER['HTTP_HOST'] ?>/assets/img/quarters/5.jpg" alt="room photo">
-                     </div>
-                     <p class="quarters__feature-m">5 комнат</p>
-                     <p class="quarters__feature-d">Пятикомнатная квартира</p>
-                     <p class="quarters__price">Сутки: <span>4 100 ₽</span></p>
-                     <div class="quarterrs__footer">
-                        <button class="quarters__adress">ул. Власова 14</button>
-                        <a class="quarters__btn btn" href="flat.php">Подробней</a>
-                     </div>
-                  </div>
-               </div>
+
+                <?php
+                foreach ($flats as $flat):
+                    ?>
+
+                    <div class="quarters__room-wrapper">
+                        <div class="quarters__room ">
+                            <div class="quarters__photo">
+                                <img src="<?= 'http://' . $_SERVER['HTTP_HOST'] ?>/assets/img/apartments/<?= substr($flat['images'], 0, strpos($flat['images'], ',')); ?>">
+                            </div>
+                            <p class="quarters__feature-d"><?= $flat['title']  ?></p>
+                            <p class="quarters__price">Сутки: <span><?= $flat['cost'] ?></span></p>
+                            <div class="quarterrs__footer">
+                                <button class="quarters__adress"><?= $flat['address'] ?></button>
+                                <a class="quarters__btn btn" href="<?= 'http://' . $_SERVER['HTTP_HOST'] ?>/flat.php?flat=<?= $flat['id'] ?>">Подробней</a>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach;?>
+
             </div>
             <a class="quarters__btn-all btn" href="<?= 'http://' . $_SERVER['HTTP_HOST'] ?>/apartments.php">Смотреть все квартиры</a>
          </div>

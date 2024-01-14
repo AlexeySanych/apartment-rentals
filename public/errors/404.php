@@ -2,7 +2,7 @@
 
 $title = "404";
 
-include 'layouts/head.php';
+include '../layouts/head.php';
 
 ?>
     <main class="main error-page">

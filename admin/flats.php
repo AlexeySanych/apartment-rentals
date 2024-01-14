@@ -6,10 +6,11 @@ $title = 'Квартиры';
 include '../../admin/layouts/pages-head.php';
 ?>
 <h1>Квартиры</h1>
-    <form action="<?= 'http://'. $_SERVER['HTTP_HOST'] . '/management/post/flats.php'?>" method="post">
+    <form action="<?= 'http://'. $_SERVER['HTTP_HOST'] . '/management/post/del-flats.php'?>" method="post">
         <table class="management__table">
             <thead>
             <tr>
+                <th>ID</th>
                 <th>Заголовок</th>
                 <th>Краткое описание</th>
                 <th>Стоимость</th>
@@ -23,6 +24,7 @@ include '../../admin/layouts/pages-head.php';
             foreach ($flats as $flat) :
                 ?>
                 <tr>
+                    <td><?= $flat['id'] ?></td>
                     <td><?= $flat['title'] ?></td>
                     <td><?= $flat['desc_prev'] ?></td>
                     <td><?= $flat['cost'] ?></td>

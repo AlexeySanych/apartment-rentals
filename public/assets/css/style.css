@@ -2318,3 +2318,30 @@ textarea {
   text-align: center;
   color: #FFB039;
 }
+
+.flat-form input {
+  margin-bottom: 10px;
+  background-color: #dddada;
+}
+
+.flat-form .flat-form__photo {
+  margin-bottom: 20px;
+  background-color: inherit;
+  border: none;
+}
+
+.flat-form p {
+  margin-bottom: 20px;
+}
+
+.flat-form__img {
+  display: flex;
+}
+
+.flat-form__img label {
+  text-align: center;
+}
+
+.flat-form__img img {
+  height: 270px;
+}
