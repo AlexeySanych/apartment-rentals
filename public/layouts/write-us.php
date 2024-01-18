@@ -3,7 +3,7 @@
         <div class="write-us__form-block">
             <div class="write-us__wrapper">
                 <h2 class="h2">Напишите нам</h2>
-                <form class="write-us__form" method="post" action="http://<?= $_SERVER['SERVER_NAME'] ?>post/user-message.php">
+                <form class="write-us__form" method="post" action="http://<?= $_SERVER['SERVER_NAME'] ?>/post/user-message.php">
                     <input class="write-us__email" type="email" name="email" placeholder="Email">
                     <input class="write-us__name" type="text" name="name" placeholder="Имя" required maxlength="32">
                     <input class="write-us__name" type="text" name="city" placeholder="Город проживания" required maxlength="32">

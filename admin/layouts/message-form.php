@@ -1,4 +1,5 @@
-<form action="<?= 'http://'. $_SERVER['HTTP_HOST'] . '/management/post/message.php'?>" method="post">
+<form action="<?= 'http://'. $_SERVER['HTTP_HOST'] . '/management/post.php' ?>" method="post">
+    <input type="hidden" name="action" value="message">
     <table class="management__table">
         <thead>
         <tr>
@@ -11,9 +12,7 @@
         </tr>
         </thead>
         <tbody>
-        <?php
-        foreach ($messages as $message) :
-            ?>
+        <?php foreach ($messages as $message) : ?>
             <tr>
                 <td><?= $message['email'] ?></td>
                 <td><?= $message['name'] ?></td>
@@ -23,7 +22,7 @@
                 <td><input class="td-input" type="checkbox" name="checkeds[]" value="<?= $message['id'] ?>"
                         <?php if ($message['is_published']) {echo 'checked';} ?>></td>
             </tr>
-        <?php endforeach ?>
+        <?php endforeach; ?>
         </tbody>
     </table>
     <button class="btn" type="submit">Отправить</button>

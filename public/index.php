@@ -1,13 +1,9 @@
 <?php
 include '../system/connectDB.php';
-
 $flats_query = mysqli_query($mysqli, "SELECT flats.*,GROUP_CONCAT(photos.image_name) AS images FROM flats JOIN photos ON flats.id = photos.flat_id GROUP BY flats.id ORDER BY RAND() LIMIT 4");
 $flats = mysqli_fetch_all($flats_query, MYSQLI_ASSOC);
-
 $title = "Аренда квартир";
-
 include 'layouts/head.php';
-
 ?>
    <main class="main">
       <section class="rent">
@@ -52,11 +48,7 @@ include 'layouts/head.php';
          <div class="container">
             <h2 class="h2">Наши квартиры</h2>
             <div class="quarters__body">
-
-                <?php
-                foreach ($flats as $flat):
-                    ?>
-
+                <?php foreach ($flats as $flat): ?>
                     <div class="quarters__room-wrapper">
                         <div class="quarters__room ">
                             <div class="quarters__photo">
@@ -66,23 +58,21 @@ include 'layouts/head.php';
                             <p class="quarters__price">Сутки: <span><?= $flat['cost'] ?></span></p>
                             <div class="quarterrs__footer">
                                 <button class="quarters__adress"><?= $flat['address'] ?></button>
-                                <a class="quarters__btn btn" href="<?= 'http://' . $_SERVER['HTTP_HOST'] ?>/flat.php?flat=<?= $flat['id'] ?>">Подробней</a>
+                                <a class="quarters__btn btn"
+                                   href="<?= 'http://' . $_SERVER['HTTP_HOST'] ?>/flat.php?flat=<?= $flat['id'] ?>">Подробней</a>
                             </div>
                         </div>
                     </div>
-                <?php endforeach;?>
-
+                <?php endforeach ?>
             </div>
             <a class="quarters__btn-all btn" href="<?= 'http://' . $_SERVER['HTTP_HOST'] ?>/apartments.php">Смотреть все квартиры</a>
          </div>
       </section>
-
        <?php
             include 'layouts/contacts.php';
             include 'layouts/reviews.php';
             include 'layouts/write-us.php';
        ?>
-
    </main>
 <?php
 include 'layouts/foot.php';

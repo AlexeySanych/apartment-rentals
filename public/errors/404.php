@@ -1,9 +1,6 @@
 <?php
-
 $title = "404";
-
 include '../layouts/head.php';
-
 ?>
     <main class="main error-page">
         <section>

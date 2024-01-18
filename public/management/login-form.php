@@ -8,14 +8,14 @@
     <link rel="stylesheet" href="<?= 'http://' . $_SERVER['HTTP_HOST'] ?>/assets/css/style.css">
     <title>Login</title>
     <style>
-        <?= include '../../admin/admin.css'?>
+        <?= include '../../admin/assets/admin.css' ?>
     </style>
 </head>
 <body class="management">
 <div class="container">
     <div class="form_auth">
         <h1>Авторизация</h1>
-        <form action="<?= 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF']; ?>" method="post">
+        <form action="<?= 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] ?>" method="post">
             <input class="management__input" type="text" name="name" placeholder="имя" required >
             <input class="management__input" type="password" name="pass" placeholder="пароль" required >
             <button class="btn" type="submit">Войти</button>

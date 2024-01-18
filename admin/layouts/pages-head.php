@@ -7,17 +7,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="<?= 'http://' . $_SERVER['HTTP_HOST'] ?>/assets/css/style.css">
     <style>
-        <?= include '../../admin/admin.css'?>
+        <?= include '../../admin/assets/admin.css' ?>
     </style>
     <title><?= $title ?></title>
 </head>
 <body class="management">
 <div class="container">
     <div class="management__btn-block">
-        <a class="btn" href="<?= 'http://'. $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] . '?page=logout'?>">Х Выход</a>
-        <?php
-            if ($_GET["page"] != 'admin') :
-        ?>
-        <a class="btn" href="<?= 'http://'. $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] . '?page=admin'?>">< В кабинет</a>
-        <?php endif;?>
+        <a class="btn" href="<?= 'http://'. $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] . '?page=logout' ?>">Х Выход</a>
+        <?php if ($_GET["page"] != 'admin') : ?>
+        <a class="btn" href="<?= 'http://'. $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] . '?page=admin' ?>">< В кабинет</a>
+        <?php endif; ?>
     </div>

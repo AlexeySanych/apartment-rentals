@@ -1,9 +1,6 @@
 <?php
-
 $title = "500";
-
 include '../layouts/head.php';
-
 ?>
     <main class="main error-page">
         <section>
